@@ -2,14 +2,14 @@
 {% block content %}
 
     <div class="ui center aligned grid">
-      <div class="ui container">
+      <div class="ui mini container">
         <h1 class="ui huge header">
-          Please sign in 
+          请先登录
         </h1>
         <form class="ui large form">
           <div class="field">
             <div class="ui left icon input">
-              <i class="user icon"></i><input name="email" placeholder="E-mail address" type="text" />
+              <i class="user icon"></i><input name="email" class="required inline " placeholder="E-mail address or phone number" type="text number" />
             </div>
           </div>
           <div class="field">
@@ -28,45 +28,4 @@
         </form>
       </div>
     </div>
-    <script>
-      
-        .ready(function() {
-          .checkbox();
-          
-            .form({
-              fields: {
-                email: {
-                  identifier  : 'email',
-                  rules: [
-                    {
-                      type   : 'empty',
-                      prompt : 'Please enter your e-mail'
-                    },
-                    {
-                      type   : 'email',
-                      prompt : 'Please enter a valid e-mail'
-                    }
-                  ]
-                },
-                password: {
-                  identifier  : 'password',
-                  rules: [
-                    {
-                      type   : 'empty',
-                      prompt : 'Please enter your password'
-                    },
-                    {
-                      type   : 'length[6]',
-                      prompt : 'Your password must be at least 6 characters'
-                    }
-                  ]
-                }
-              },
-              inline: true,
-              on: 'blur'
-            })
-          ;
-        })
-      ;
-    </script>
 {% endblock  %}
