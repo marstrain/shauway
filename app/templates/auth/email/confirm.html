@@ -1,0 +1,8 @@
+<p>亲爱的{{ user.username }},</p>
+<p>欢迎进入 <b>小卫的日常</b>!</p>
+<p>要激活你的账号<a href="{{ url_for('auth.confirm', token=token, _external=True) }}">点击这里</a>.</p>
+<p>或者直接复制这个链接到你的浏览器地址栏:</p>
+<p>{{ url_for('auth.confirm', token=token, _external=True) }}</p>
+<p>祝您 生活愉快!</p>
+<p>小卫</p>
+<p><small>请勿回复激活邮件</small></p>

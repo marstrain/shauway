@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% block content %}
+
+ <div class="ui center aligned grid">
+      <div class="ui large container">
+        <h1 class="ui center aligned huge header">
+          请先登录
+        </h1>
+        <div class="menu">
+        
+              <a href="{{url_for('auth.register')}}" class="ui link left item">还没有账号,现在注册   </a>
+              <a href="{{url_for('auth.forget_password')}}" class="ui link right item">忘记了密码</a>
+        </div>
+              <form action="{{url_for('auth.login')}}"class="ui small form " method="POST">
+        {{ form.hidden_tag() }}
+        <div class="required filed">
+            <div class="ui fluid  left icon large corner labeled input" >
+            <i class="user icon"></i>
+            {{ form.email(type="email", placeholder="填写邮件地址", autofocus="autofocus") }}
+            <label><i class="red asterisk icon"></i></label>
+        </div>
+              <br></br>
+        </div>
+          <div class="field">
+              <div class="ui fluid left icon large input" >
+                <i class="lock icon"></i>{{form.password(placeholder="密码") }} 
+                <label><i class="red asterisk icon"> </i></label>
+            </div>
+          </div>
+          <div class="field">
+            <div class="ui toggle checkbox ">
+              <input class="hidden" tabindex="0" type="checkbox" id="remember" name="remember_me" />
+                <label for="remember">下次自动登录</label>
+            </div>
+          </div>
+              <button type="submit" class="ui center aligned vertical blue button">登录</button>
+        </form>
+      </div>
+    </div>
+{% endblock  %}
+{% block footer %}
+{% endblock %}
+

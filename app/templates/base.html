@@ -16,10 +16,27 @@
 <body>
     <div class="ui inverted blue  massive secondary pointing  menu">
             <a style="position:relative;top:10px" class="ui fluid left "><i class="cn flag"></i></a><a class="item" href="/">首页</a><a class="item" href="/about">关于</a><a class="item" href="/contact">联系</a>
-            <a class="item right " href="/login">登录</a><a class="item" href="/logout">退出</a>
+            <div class="right menu">
+                {% if current_user.is_authenticated %}
+                <a class="item right " href="{{url_for('auth.logout')}}">{{ current_user.username}}退出</a>
+                {% else %}
+                <a class="right  item" href="{{url_for('auth.register')}}">注册</a>
+                <a class="right  item" href="{{url_for('auth.login')}}">登录</a>
+                {% endif %}
+            </div>
     </div>
+        {% for message in get_flashed_messages() %}
+    <div class="ui error message transition ">
+          <i class="close icon" ></i>
+            <div class="hidden header" >
+                                {{ message }}
+                      </div>
+                                  </div>
+                                        {% endfor %}
+ 
     {% block content %}
     {% endblock %}
+    {%block footer %}
  <div class="ui vertical footer segment">
     <div class="ui center aligned container">
       <div class="ui stackable divided grid">
@@ -34,15 +51,16 @@
         <div class="seven wide column">
           <h4 class="ui header">小卫的微信号</h4>
           <div class="small image">
-          <img src="static/image/weixin.png" width="30%" height="30%" >
+              <img src="{{url_for('static',filename='image/weixin.png')}}" width="30%" height="30%" >
       </div>
         </div>
       </div>
       <div class="ui section divider"></div>
-      <img src="static/image/font-black.png" class="ui centered mini image">
+      <img src="{{url_for('static',filename='image/font-black.png')}}" class="ui centered mini image">
       <div class="ui horizontal small padded  divided ">
           <div>Powered By Shauway</div>
       </div>
     </div>
+    {% endblock %}
 </body>
 <html>

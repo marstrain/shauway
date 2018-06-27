@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% block content %}
+
+    <div class="ui center aligned grid">
+      <div class="ui large container">
+        <h1 class="ui center aligned huge header">注册</h1>
+        <a href="{{url_for('auth.login')}}" class="very padded link">己有账号，去登录</a>
+              <form action="{{url_for('auth.register')}}"class="ui large form " method="POST">
+        {{ form.hidden_tag() }}
+        <div class="required filed">
+            <div class="ui fluid left icon large corner labeled input" >
+            <i class="mail icon"></i>
+            {{ form.email(type="email", placeholder="要注册的邮件地址", autofocus="autofocus") }}
+            <label for="email"><i class="red asterisk icon"></i></label>
+            </div>
+              <br></br>
+        </div>
+        <div class="required filed">
+            <div class="ui fluid left icon large corner labeled input" >
+            <i class="user icon"></i>
+            {{ form.username(placeholder="用户呢称") }}
+            <label><i class="red asterisk icon"></i></label>
+            </div>
+              <br></br>
+        </div>
+        <div class="required field">
+            <div class="ui fluid left icon large input" >
+                <i class="lock icon"></i>{{form.password(placeholder="密码") }} 
+                <label for="password"><i class="red asterisk icon"> </i></label>
+            </div>
+            <br></br>
+        </div>
+        <div class="required field">
+            <div class="ui fluid left icon large input" >
+                <i class="lock icon"></i>{{form.password2(placeholder="再次输入密码") }} 
+                <label><i class="red asterisk icon"> </i></label>
+            </div>
+        </div>
+        <div class="field">
+            <button type="submit" class="ui center aligned vertical blue button">注册</button>
+        </div>
+        </form>
+      </div>
+    </div>
+{% endblock  %}
+

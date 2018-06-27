@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="ui segment">
+    <h1 class="ui huge header">亲爱的{{current_user.username}},快去邮箱激活账号吧！</h1>
+    <div class="segment">
+        <span>未收到邮件?请点击<a href="{{url_for('auth.resend_confirmation')}}">这里</a>获取新的激活邮件</span>
+</div>
+{% endblock %}
+{% block footer %}
+{% endblock %}
