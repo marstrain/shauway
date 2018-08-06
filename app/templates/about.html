@@ -1,20 +1,29 @@
 {% extends 'base.html' %}
-{% block content %}
-<div class="ui horizental center aligned huge padded container" >
-    <div class="ui grid">
-        <div class="six wide column">
-    <a class="ui green button"  href="https://github.com/marstrain" target="_blank">
-        <i class="github icon"></i>github
-    </a>
+{% block headerlogo  %}
+    <header class="masthead" style="background-image: url('static/img/about-bg.jpg')">
+      <div class="overlay"></div>
+      <div class="container">
+          <div class="row">
+                <div class="col-lg-8 col-md-10 mx-auto">
+                <div class="site-heading">
+          <h1>成立故事</h1>
+                </div>
+            </div>
         </div>
-        <div class="five wide column">
-    <a  class="ui twitter button" href="https://github.com/marstrain" style="_blank">
-        <i class="twitter icon"></i>Twitter</a>
-</div>
-        <div class="five wide column">
-    <div class="ui google plus button">
-        <i class="google plus icon"></i>Google Plus
+      </div>
+      </div>
+    </header>
+{% endblock %}
+
+{% block content  %}
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+            <p></p>
+        </div>
+      </div>
     </div>
-</div>
-</div>
-{% endblock  %}
+
+    <hr>
+
+    {% endblock %}
